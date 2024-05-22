@@ -23,4 +23,9 @@ class Incedents extends Model
     ];
 
   
+    public function report()
+    {
+        return $this->hasMany(Report::class);
+    }
+
 }

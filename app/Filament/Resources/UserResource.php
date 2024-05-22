@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\IncedentsResource\RelationManagers\ReportRelationManager;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Filament\Resources\UserResource\RelationManagers\EquipmentsRelationManager;
 use App\Filament\Resources\UserResource\RelationManagers\TrackingsRelationManager;
+use App\Models\Report;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
@@ -82,6 +84,7 @@ class UserResource extends Resource
     {
         return [
             TrackingsRelationManager::make(),
+            ReportRelationManager::make(),
         ];
     }
 

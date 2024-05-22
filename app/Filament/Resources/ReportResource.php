@@ -6,6 +6,7 @@ use App\Filament\Resources\ReportResource\Pages;
 use App\Filament\Resources\ReportResource\RelationManagers;
 use App\Models\Report;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,7 +24,11 @@ class ReportResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Select::make('user_id')
+                    ->relationship('user', 'name')
+                    ->required(),
+                Select::make('incedents_id')
+                    ->relationship('incedents', 'type')
             ]);
     }
 
@@ -31,7 +36,10 @@ class ReportResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('user.name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('incedents.type')
+                    ->searchable(),
             ])
             ->filters([
                 //

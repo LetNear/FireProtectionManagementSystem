@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\IncedentsResource\Pages;
 use App\Filament\Resources\IncedentsResource\RelationManagers;
+use App\Filament\Resources\IncedentsResource\RelationManagers\ReportRelationManager;
 use App\Models\Incedents;
 use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;
@@ -90,7 +91,7 @@ class IncedentsResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ReportRelationManager::make(),
         ];
     }
 
